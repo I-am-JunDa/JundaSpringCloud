@@ -1,0 +1,93 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+
+allprojects {
+    version '1.0-SNAPSHOT'
+    group 'com.junda'
+    description 'JunDa project Spring Cloud / Alibaba Cloud'
+
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+
+    ext {
+        set('springCloudVersion', "2021.0.3")
+        set('springCloudAlibabaVersion', "2021.0.1.0")
+        set('knife4jVersion', "3.0.3")
+        set('lombokVersion', "1.18.22")
+        set('mongoVersion', "2.7.0")
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+        }
+        dependencies {
+            dependency "org.projectlombok:lombok:${lombokVersion}"
+            dependency "com.github.xiaoymin:knife4j-spring-boot-starter:${knife4jVersion}"
+            //dependency "org.springframework.boot:spring-boot-starter-data-mongodb:${mongoVersion}"
+        }
+    }
+
+}
+
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = '1.8'
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+
+        // 排除 logback 依赖（使用 log4j2）
+        implementation.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+
+    }
+
+    dependencies {
+        //添加log4j2模块 + 用于识别 (log4j2.yml 文件）
+        implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+        implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
+
+        implementation "com.github.xiaoymin:knife4j-spring-boot-starter:${knife4jVersion}"
+
+        //lombok 插件
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    }
+
+    test {
+        useJUnitPlatform()
+        ignoreFailures = true
+    }
+
+    /**
+     * clean 命令时删除 logs 目录
+     */
+    task cleanOutDir(type: Delete) {
+        delete "${projectDir}/logs"
+        delete "${rootDir}/logs"
+    }
+    tasks.clean.dependsOn(cleanOutDir)
+
+}

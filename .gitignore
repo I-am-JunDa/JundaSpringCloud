@@ -1,0 +1,13 @@
+# Project exclude paths
+/.gradle/
+.gradle
+/junda-service01/build/
+/junda-service01/build/classes/java/main/
+/junda-service02/build/
+/junda-service02/build/classes/java/main/
+
+*.class
+.idea/
+build/
+*.log
+logs/

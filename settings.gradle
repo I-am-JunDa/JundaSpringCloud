@@ -1,0 +1,11 @@
+rootProject.name = 'JundaSpringCloud'
+
+include 'junda-core'
+include 'junda-core:security'
+
+include 'junda-auth'
+include 'junda-service01'
+include 'junda-service02'
+include 'junda-core:security'
+findProject(':junda-core:security')?.name = 'security'
+

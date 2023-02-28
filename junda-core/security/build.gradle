@@ -1,0 +1,28 @@
+group = 'com.junda.security'
+version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'org.springframework.boot'
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+
+dependencies {
+    //引入springSecurity安全认证框架 + jwt认证
+    compileOnly 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'io.jsonwebtoken:jjwt-api:0.10.7'
+    //hutool工具类
+    implementation 'cn.hutool:hutool-all:5.8.10'
+    //web基础服务包
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // alibaba 的 fastjson
+    implementation 'com.alibaba:fastjson:2.0.21'
+    //mybatisplus插件
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
+
+}
