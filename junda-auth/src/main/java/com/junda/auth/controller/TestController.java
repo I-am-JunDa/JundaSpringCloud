@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class TestController {
 
-    @GetMapping("/user")
+    @GetMapping("/userWithNihao")
     @PreAuthorize("hasAnyAuthority('user:nihao')")
     public String productAmount() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

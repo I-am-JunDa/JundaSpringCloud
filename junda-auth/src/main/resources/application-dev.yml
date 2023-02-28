@@ -1,0 +1,56 @@
+server:
+  port: 8568
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: service01
+  datasource:
+    url: jdbc:mysql://localhost:13306/spring_security?serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&failOverReadOnly=false
+    username: root
+    password: libai45==dnfale
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  elasticsearch:
+#    uris: http://10.8.7.121:9200
+#    username: elastic
+#    socket-timeout: 10s
+#    password: iap@IALAB
+#    connection-timeout: 10s
+#  cloud:
+#    nacos:
+#      discovery:
+#        #nacos config
+#        namespace: a59878f0-c51f-4d02-9837-119e8d6d0be0
+#        server-addr: 10.8.7.226:8848
+
+#feign:
+#  circuitbreaker:
+#    enabled: true
+#  client:
+#    config:
+#      default: #这里的default代表全部服务
+#        connectTimeout: 10000 #10秒
+#        readTimeout: 20000 #20秒
+# 项目配置
+project:
+  version: 0.0.1
+
+# knife4j文档配置
+#knife4j:
+#  enable: true
+#  title: cic产品微服务接口文档
+#  description: cic产品微服务api
+#  contact:
+#    name: 光旋科技
+#    url: https://www.wisegraph.cn
+#    email: xxxxx@wisegraph.cn
+#  cors: true
+#  basic:
+#    enable: true
+#    username: cic@admin
+#    password: 1qaz@WSX
+#  base:
+#    package: com.junda.productms.controller
+jwt:
+  usefulTime: 1800

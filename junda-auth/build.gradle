@@ -17,12 +17,15 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     //bootstrap需要的包依赖
     implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+    //aop切面
+    implementation ("org.springframework.boot:spring-boot-starter-aop")
 
     //接入安全框架
     implementation(project(":junda-core:security"))
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    //mybatisplus插件
-    //implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
+    //mysql + mybatisplus插件
+    implementation 'mysql:mysql-connector-java:8.0.21'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
 
 }
 
