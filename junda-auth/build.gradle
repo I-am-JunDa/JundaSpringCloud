@@ -19,7 +19,7 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
 
     //接入安全框架
-    //implementation(project(":core:security"))
+    implementation(project(":junda-core:security"))
     implementation 'org.springframework.boot:spring-boot-starter-security'
     //mybatisplus插件
     //implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
