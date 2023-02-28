@@ -1,4 +1,4 @@
-package com.junda.config;//package com.junda.config;
+//package com.junda.config;
 //
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -13,14 +13,14 @@ package com.junda.config;//package com.junda.config;
 //     * 自定义Key为String类型Value为Object类型的Redis操作模板
 //     */
 //    @Bean(name = "redisTemplate")
-//    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+//    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
 //        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 //        redisTemplate.setConnectionFactory(redisConnectionFactory);
 //
 //        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-//        // key采用String的序列化方式
+//        key采用String的序列化方式
 //        redisTemplate.setKeySerializer(new StringRedisSerializer());
-//        // hash的key也采用String的序列化方式
+//        hash的key也采用String的序列化方式
 //        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
 //
 //        return redisTemplate;
