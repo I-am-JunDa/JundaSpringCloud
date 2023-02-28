@@ -20,8 +20,8 @@ IntelliJ IDEA
     ├── junda-auth -- 权限认证模块
     ├── junda-core -- 核心公共模块
     |   ├──security 安全模块
-    |   ├──common 公共模块
-    |   ├──common-api 服务调用api接口
-    |   ├──model 模型对象模块
+    |   ├──common 公共模块 全局异常，自定义注解
+    |   ├──common-api 服务调用api接口,feign
+    |   ├──model 业务相关公共 entity、枚举、VO
     ├── junda-service01 -- 服务01
     ├── junda-service02 -- 服务02
